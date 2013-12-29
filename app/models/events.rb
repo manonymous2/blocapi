@@ -1,3 +1,3 @@
-class Customer < ActiveRecord::Base
+class Events < ActiveRecord::Base
   attr_accessible :event_name
 end
