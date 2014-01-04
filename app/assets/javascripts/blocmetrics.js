@@ -1,40 +1,27 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
-// listed below.
-//
-// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
-// or vendor/assets/javascripts of plugins, if any, can be referenced here using a relative path.
-//
-// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
-// the compiled file.
-//
-// WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
-// GO AFTER THE REQUIRES BELOW.
-//
-//= require jquery
-//= require jquery_ujs
-//= require_tree .
+
+var blocmetrics = {
+
+  foo: function() {
+    alert("foo")
+  },
+
+ init: function() {
+    s = this.settings;
+    this.bindUIActions();
+  },
 
 
-POST /events
 
-Parameters:
-  any arbitrary amount of parameters. from the example Javascript function above, it would be:
-
-  {
-    property_1: "some value",
-    property_2: "some other value"
+  track: function(a,b) {
+    $.ajax({	
+	  type: "POST",
+	  url: "/events",
+	  data: {"event": {"event_name": a} }
+	})
   }
 
+}
 
 
-POST /customers
-
-Parameters:
-  any arbitrary amount of parameters. from the example Javascript function above, it would be:
-
-  {
-    property_1: "some value",
-    property_2: "some other value"
-  }
-
+// blocmetrics.track("some event name", {property_1: "some value", property_2: "some other value"})
 

@@ -26,11 +26,7 @@
 
 <script>
  function clickEvent(){
-        $.ajax({
-        type: "POST",
-        url: "/events",
-        data: {"event": {"event_name": "new_customer_path", "user_id": "<%= current_user.id rescue 0 %> "} }
-      })
+ blocmetrics.track("new customer creation", {property_1: "some value", property_2: "some other value"})
     }
 
     $("#589").click(function(){clickEvent()});
