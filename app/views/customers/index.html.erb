@@ -20,4 +20,18 @@
 
 <br />
 
-<%= link_to 'New Customer', new_customer_path %>
+<script src="Chart.js"></script>
+
+<%= link_to 'New Customer', new_customer_path, id: 589 %>
+
+<script>
+ function clickEvent(){
+        $.ajax({
+        type: "POST",
+        url: "/events",
+        data: {"event": {"event_name": "new_customer_path", "user_id": "<%= current_user.id rescue 0 %> "} }
+      })
+    }
+
+    $("#589").click(function(){clickEvent()});
+    </script>

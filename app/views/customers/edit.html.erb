@@ -4,3 +4,12 @@
 
 <%= link_to 'Show', @customer %> |
 <%= link_to 'Back', customers_path %>
+
+
+<script>
+	$.ajax({
+	  type: "POST",
+	  url: "/events",
+	  data: {"event": {"event_name": "visited_user_edit", "user_id": "<%= current_user.id if current_user %> "} }
+	})
+</script>

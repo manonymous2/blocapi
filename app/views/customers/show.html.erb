@@ -1,10 +1,44 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Event name:</b>
-  <%= @event.event_name %>
+  <b>App name:</b>
+  <%= @customer.app_name %>
 </p>
 
 
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', customers_path %>
+
+
+<div class="chart">
+	My Beautiful Chart
+</div>
+<button id="add-new-chart">
+	New Chart
+</button>
+
+
+
+
+
+<script>
+
+    function clickEvent(){
+    		alert("Take a look at key metrics.")
+    		$.ajax({
+			  type: "POST",
+			  url: "/events",
+			  data: {"event": {"event_name": "add-new-chart", "user_id": "<%= current_user.id rescue 0 %> "} }
+			})
+    }
+
+	$.ajax({
+	  type: "POST",
+	  url: "/events",
+	  data: {"event": {"event_name": "visited_user_show", "user_id": "<%= current_user.id rescue 0 %> "} }
+	})
+
+	$("#add-new-chart").click(function(){clickEvent()});
+
+
+</script>
