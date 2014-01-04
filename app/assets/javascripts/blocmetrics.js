@@ -24,3 +24,17 @@ Parameters:
     property_1: "some value",
     property_2: "some other value"
   }
+
+
+
+POST /customers
+
+Parameters:
+  any arbitrary amount of parameters. from the example Javascript function above, it would be:
+
+  {
+    property_1: "some value",
+    property_2: "some other value"
+  }
+
+
